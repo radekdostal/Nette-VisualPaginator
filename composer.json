@@ -1,0 +1,24 @@
+{
+  "name": "radekdostal/nette-visualpaginator",
+  "description": "VisualPaginator Control for Nette Framework",
+  "version": "1.0.0",
+  "type": "library",
+  "authors": [
+    {
+      "name": "Radek Dostál",
+      "email": "radek.dostal@gmail.com"
+    }
+  ],
+  "license": [
+    "LGPL-2.1",
+    "LGPL-3.0"
+  ],
+  "require": {
+    "php": ">=5.4.0",
+    "nette/application": "^2.2.0",
+    "nette/di": "^2.2.0"
+  },
+  "autoload": {
+    "classmap": ["src/"]
+  }
+}

@@ -1,0 +1,18 @@
+{*
+ * VisualPaginator Control: Bootstrap 3 template
+ *
+ * @param \Nette\Utils\Paginator $paginator
+ * @param array $steps
+ * @param bool $viewButtonAll
+ *}
+<div n:if="$paginator->getPageCount() > 1" class="text-center">
+  <ul class="pagination pagination-sm">
+    <li n:class="$paginator->isFirst() === TRUE ? disabled"><a href="{if $paginator->isFirst() === TRUE}#{else}{link this, 'page' => $paginator->getPage() - 1}{/if}">« Předchozí</a></li>
+    {foreach $steps as $step}
+    <li n:class="$step == $paginator->getPage() ? active"><a href="{if $step == $paginator->getPage()}#{else}{link this, 'page' => $step}{/if}">{$step}</a></li>
+    <li n:if="$iterator->getNextValue() > $step + 1" class="disabled"><a href="#">…</a></li>
+    {/foreach}
+    <li n:class="$paginator->isLast() === TRUE ? disabled"><a href="{if $paginator->isLast() === TRUE}#{else}{link this, 'page' => $paginator->getPage() + 1}{/if}">Další »</a></li>
+    <li n:if="$viewButtonAll === TRUE && $paginator->getPageCount() > 1" class="paginator-button-all"><a href="{plink this, 'vp-page' => NULL, 'all' => 1}">Vše</a></li>
+  </ul>
+</div>
