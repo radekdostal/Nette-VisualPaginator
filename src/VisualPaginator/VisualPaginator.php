@@ -135,6 +135,16 @@ class VisualPaginator extends Control
   }
 
   /**
+   * Checks if all records are viewed
+   *
+   * @return bool
+   */
+  public function isViewedAll()
+  {
+    return $this->getParameter('page') == '0';
+  }
+
+  /**
    * Loads state informations
    *
    * @param array
