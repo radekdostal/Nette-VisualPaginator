@@ -156,4 +156,14 @@ class VisualPaginator extends Control
 
     $this->getPaginator()->page = $this->page;
   }
+
+  /**
+   * Creates this control
+   *
+   * @return self
+   */
+  public function create()
+  {
+    return new self();
+  }
 }

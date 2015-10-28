@@ -59,6 +59,15 @@ class DefaultPresenter extends BasePresenter
   {
     return $this->visualPaginator;
   }
+
+  // For multiple paginators on the same page
+  protected function createComponentVp2()
+  {
+    $control = $this->visualPaginator->create();
+    // $control->setTemplate(...);
+    
+    return $control;
+  }
 }
 ```
 
