@@ -103,6 +103,7 @@ class VisualPaginator extends Control
     $this->template->paginator = $paginator;
     $this->template->steps = $steps;
     $this->template->viewButtonAll = $this->viewButtonAll;
+    $this->template->activeButtonAll = $this->page === 0;
 
     $this->template->setFile($this->templateFilename);
     $this->template->render();
