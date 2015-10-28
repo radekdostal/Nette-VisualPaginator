@@ -154,7 +154,7 @@ class VisualPaginator extends Control
   {
     parent::loadState($params);
 
-    $this->getPaginator()->page = $this->page;
+    $this->getPaginator()->setPage($this->page);
   }
 
   /**
