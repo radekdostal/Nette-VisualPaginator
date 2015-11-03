@@ -13,7 +13,7 @@
     <li n:class="$activeButtonAll === FALSE && $step == $paginator->getPage() ? active"><a href="{if $activeButtonAll === FALSE && $step == $paginator->getPage()}#{else}{link this, 'page' => $step}{/if}">{$step}</a></li>
     <li n:if="$iterator->getNextValue() > $step + 1" class="disabled"><a href="#">…</a></li>
     {/foreach}
-    <li n:class="$paginator->isLast() === TRUE ? disabled"><a href="{if $paginator->isLast() === TRUE}#{else}{link this, 'page' => $paginator->getPage() + 1}{/if}">Další »</a></li>
+    <li n:class="$paginator->isLast() === TRUE || ($viewButtonAll === TRUE && $activeButtonAll === TRUE) ? disabled"><a href="{if $paginator->isLast() === TRUE || ($viewButtonAll === TRUE && $activeButtonAll === TRUE)}#{else}{link this, 'page' => $paginator->getPage() + 1}{/if}">Další »</a></li>
     <li n:if="$viewButtonAll === TRUE && $paginator->getPageCount() > 1" class="paginator-button-all{if $activeButtonAll === TRUE} active{/if}"><a href="{link this, 'page' => 0}">Vše</a></li>
   </ul>
 </div>
