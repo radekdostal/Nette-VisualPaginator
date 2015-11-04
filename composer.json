@@ -1,7 +1,7 @@
 {
   "name": "radekdostal/nette-visualpaginator",
   "description": "VisualPaginator Control for Nette Framework",
-  "version": "1.1.1",
+  "version": "2.0.0",
   "type": "library",
   "authors": [
     {
@@ -15,6 +15,7 @@
   ],
   "require": {
     "php": ">=5.4.0",
+    "kdyby/translation": "^2.2.0",
     "nette/application": "^2.2.0",
     "nette/di": "^2.2.0"
   },

@@ -7,13 +7,14 @@ VisualPaginator Control for Nette Framework
 - Licence: [GNU Lesser General Public License](http://www.gnu.org/licenses/)
 - Github: [http://github.com/radekdostal/Nette-VisualPaginator](http://github.com/radekdostal/Nette-VisualPaginator)
 
-This add-on creates visual paginator with support for custom templates (default template is designed for [Bootstrap](http://getbootstrap.com/) 3).
+This add-on creates visual paginator with localizations and with optional "all" button. It supports custom localizations and custom templates (default template is designed for [Bootstrap](http://getbootstrap.com/) 3).
 
 ## Requirements
 
 - **[PHP](http://php.net)** 5.4 or later
 - **[Nette Application](https://github.com/nette/application)** 2.2 or later
 - **[Nette DI](https://github.com/nette/di)** 2.2 or later
+- **[Kdyby/Translation](https://github.com/Kdyby/Translation)** 2.2 or later
 
 ## GNU Lesser General Public License
 
@@ -28,13 +29,23 @@ LGPL licenses are very very long, so instead of including them here we offer you
 
 ```php
 extensions:
+  translation: Kdyby\Translation\DI\TranslationExtension
   visualPaginator: RadekDostal\NetteComponents\VisualPaginator\VisualPaginatorExtension
 
-# Optional
+translation:
+  default: cs
+  fallback: [cs_CZ, cs]
+  whitelist: [cs, en]
+  resolvers: # optional
+    header: off
+
 visualPaginator:
-  template: '%appDir%/components/VisualPaginator/custom.latte'
-  viewButtonAll: TRUE
+  translator: @translation.default
+  #template: '%appDir%/components/VisualPaginator/custom.latte'
+  #viewButtonAll: TRUE
 ```
+
+Kdyby\Translation looks for localizations in the directory app/lang. For example english localization file must be named visualPaginator.en_GB.neon (in case of using the NEON syntax).
 
 ### Presenter
 
@@ -65,6 +76,9 @@ class DefaultPresenter extends BasePresenter
   {
     $control = $this->visualPaginator->create();
     // $control->setTemplate(...);
+    
+    // Dynamic change localization
+    $control->getTranslator()->setLocale('en');
     
     return $control;
   }
