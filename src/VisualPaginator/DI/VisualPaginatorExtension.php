@@ -36,6 +36,8 @@ class VisualPaginatorExtension extends CompilerExtension
     $paginator = $builder->addDefinition($this->prefix('paginator'))
       ->setClass('\RadekDostal\NetteComponents\VisualPaginator\VisualPaginator');
 
+    $paginator->addSetup('$service->setTranslator(?)', [$config['translator']]);
+
     if ($config['template'])
       $paginator->addSetup('$service->setTemplate(?)', [$config['template']]);
 

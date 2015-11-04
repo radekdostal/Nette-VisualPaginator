@@ -10,6 +10,7 @@
 
 namespace RadekDostal\NetteComponents\VisualPaginator;
 
+use Kdyby\Translation\Translator;
 use Nette\Application\UI\Control;
 use Nette\ComponentModel\IContainer;
 use Nette\Utils\Paginator;
@@ -35,6 +36,13 @@ class VisualPaginator extends Control
    * @var \Nette\Utils\Paginator
    */
   private $paginator;
+
+  /**
+   * Translator
+   *
+   * @var \Kdyby\Translation\Translator
+   */
+  private $translator;
 
   /**
    * Template filename
@@ -106,7 +114,39 @@ class VisualPaginator extends Control
     $this->template->activeButtonAll = $this->page === 0;
 
     $this->template->setFile($this->templateFilename);
+    $this->template->setTranslator($this->translator->domain('visualPaginator'));
     $this->template->render();
+  }
+
+  /**
+   * Sets translator
+   *
+   * @param \Kdyby\Translation\Translator $translator translator
+   * @return self
+   */
+  public function setTranslator(Translator $translator)
+  {
+    $availableLocales = $translator->getAvailableLocales();
+
+    if (in_array('cs_CZ', $availableLocales) === FALSE)
+      $translator->addResource('neon', __DIR__.'/lang/visualPaginator.cs_CZ.neon', 'cs_CZ', 'visualPaginator');
+
+    if (in_array('en_GB', $availableLocales) === FALSE)
+      $translator->addResource('neon', __DIR__.'/lang/visualPaginator.en_GB.neon', 'en_GB', 'visualPaginator');
+
+    $this->translator = $translator;
+
+    return $this;
+  }
+
+  /**
+   * Gets translator
+   *
+   * @return \Kdyby\Translation\Translator
+   */
+  public function getTranslator()
+  {
+    return $this->translator;
   }
 
   /**
@@ -165,6 +205,10 @@ class VisualPaginator extends Control
    */
   public function create()
   {
-    return new self();
+    $new = new self();
+
+    $new->setTranslator(clone $this->getTranslator());
+
+    return $new;
   }
 }
