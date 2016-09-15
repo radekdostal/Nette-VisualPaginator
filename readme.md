@@ -3,15 +3,15 @@
 VisualPaginator Control for Nette Framework
 
 - Author: Radek Dostál &lt;radek.dostal@gmail.com&gt;
-- Copyright: Copyright (c) 2015 [Radek Dostál](http://www.radekdostal.cz)
-- Licence: [GNU Lesser General Public License](http://www.gnu.org/licenses/)
-- Github: [http://github.com/radekdostal/Nette-VisualPaginator](http://github.com/radekdostal/Nette-VisualPaginator)
+- Copyright: Copyright (c) 2015 - 2016 [Radek Dostál](https://www.radekdostal.cz)
+- Licence: [GNU Lesser General Public License](https://www.gnu.org/licenses/)
+- Github: [radekdostal/Nette-VisualPaginator](https://github.com/radekdostal/Nette-VisualPaginator)
 
 This add-on creates visual paginator with localizations and with optional "all" button. It supports custom localizations and custom templates (default template is designed for [Bootstrap](http://getbootstrap.com/) 3).
 
 ## Requirements
 
-- **[PHP](http://php.net)** 5.4 or later
+- **[PHP](https://php.net)** 5.4 or later
 - **[Nette Application](https://github.com/nette/application)** 2.2 or later
 - **[Nette DI](https://github.com/nette/di)** 2.2 or later
 - **[Kdyby/Translation](https://github.com/Kdyby/Translation)** 2.2 or later
@@ -20,8 +20,8 @@ This add-on creates visual paginator with localizations and with optional "all" 
 
 LGPL licenses are very very long, so instead of including them here we offer you URLs with full text:
 
-- [LGPL version 2.1](http://www.gnu.org/licenses/lgpl-2.1.html)
-- [LGPL version 3](http://www.gnu.org/licenses/lgpl-3.0.html)
+- [LGPL version 2.1](https://www.gnu.org/licenses/lgpl-2.1.html)
+- [LGPL version 3](https://www.gnu.org/licenses/lgpl-3.0.html)
 
 ## Example
 
